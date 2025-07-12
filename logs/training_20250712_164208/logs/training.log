@@ -1,0 +1,10 @@
+2025-07-12 16:42:08,553 - coup_training - INFO - Logger initialized: logs/training_20250712_164208
+2025-07-12 16:42:08,553 - coup_training - INFO - Self-play trainer initialized
+2025-07-12 16:42:08,554 - coup_training - INFO - Device: cpu
+2025-07-12 16:42:08,554 - coup_training - INFO - Environment: 2 players
+2025-07-12 16:42:08,554 - coup_training - INFO - Total timesteps: 1000
+2025-07-12 16:42:08,554 - coup_training - INFO - Starting training
+2025-07-12 16:42:09,192 - coup_training - INFO - Training completed, running final evaluation
+2025-07-12 16:42:09,192 - coup_training - INFO - Evaluating agent over 20 episodes
+2025-07-12 16:42:09,458 - coup_training - INFO - Win rate vs random: 0.000
+2025-07-12 16:42:09,710 - coup_training - INFO - Win rate vs greedy: 0.000

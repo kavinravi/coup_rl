@@ -1,0 +1,125 @@
+# Coup RL Training Configuration
+
+# Environment Settings
+environment:
+  num_players: 2
+  max_turns: 100
+  render_mode: null  # set to "human" for debugging
+
+# Agent Configuration
+agent:
+  device: "cpu"  # change to "cuda" for GPU training
+  hidden_size: 128
+  lstm_size: 64
+
+# PPO Training Parameters
+ppo:
+  learning_rate: 3e-4
+  gamma: 0.99
+  gae_lambda: 0.95
+  clip_range: 0.2
+  entropy_coef: 0.01
+  value_coef: 0.5
+  max_grad_norm: 0.5
+  ppo_epochs: 4
+  batch_size: 64
+  n_steps: 128
+  target_kl: 0.01
+  use_gae: true
+
+# Training Schedule
+training:
+  total_timesteps: 1_000_000
+  eval_frequency: 10_000
+  checkpoint_frequency: 50_000
+  log_frequency: 1_000
+  
+  # early stopping
+  early_stopping:
+    enabled: true
+    patience: 10  # evaluations without improvement
+    min_delta: 0.01  # minimum improvement in win rate
+  
+  # curriculum learning
+  curriculum:
+    enabled: false
+    start_players: 2
+    end_players: 4
+    progression_threshold: 0.7  # win rate to progress
+
+# Evaluation Settings
+evaluation:
+  num_eval_episodes: 100
+  eval_opponents: ["random", "greedy", "conservative"]
+  tournament_size: 50
+  elo_update: true
+  detailed_stats: true
+
+# Logging Configuration
+logging:
+  tensorboard: true
+  wandb: false  # set to true for cloud logging
+  console_level: "INFO"
+  file_level: "DEBUG"
+  
+  # wandb config (if enabled)
+  wandb_project: "coup-rl"
+  wandb_entity: null  # your wandb username
+  wandb_tags: ["ppo", "lstm", "self-play"]
+
+# Checkpointing
+checkpoints:
+  save_dir: "logs/checkpoints"
+  keep_best: 5
+  keep_latest: 3
+  save_optimizer: true
+  save_training_state: true
+
+# Self-Play Configuration
+self_play:
+  enabled: true
+  opponent_pool_size: 5
+  update_frequency: 25_000  # steps between adding to opponent pool
+  selection_strategy: "recent"  # "recent", "random", "tournament"
+  
+  # league training (future)
+  league_training:
+    enabled: false
+    exploiter_ratio: 0.3
+    main_agent_ratio: 0.7
+
+# Reward Shaping
+rewards:
+  # terminal rewards
+  win_reward: 1.0
+  loss_reward: -1.0
+  
+  # intermediate rewards
+  challenge_success: 0.1
+  challenge_failure: -0.1
+  successful_bluff: 0.05
+  failed_bluff: -0.05
+  gain_coins: 0.01
+  lose_coins: -0.01
+  eliminate_opponent: 0.2
+  lose_influence: -0.15
+  
+  # exploration and efficiency
+  entropy_bonus: 0.001
+  turn_penalty: -0.001
+  action_variety_bonus: 0.001
+
+# Performance Optimization
+performance:
+  num_workers: 1  # parallel environments
+  prefetch_batches: 2
+  pin_memory: true
+  compile_model: false  # torch.compile for pytorch 2.0+
+
+# Debugging
+debug:
+  enabled: false
+  log_game_states: false
+  save_replay_buffer: false
+  validate_actions: true
+  profile_training: false 

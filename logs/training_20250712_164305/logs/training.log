@@ -1,0 +1,30 @@
+2025-07-12 16:43:05,117 - coup_training - INFO - Logger initialized: logs/training_20250712_164305
+2025-07-12 16:43:05,117 - coup_training - INFO - Self-play trainer initialized
+2025-07-12 16:43:05,117 - coup_training - INFO - Device: cpu
+2025-07-12 16:43:05,117 - coup_training - INFO - Environment: 2 players
+2025-07-12 16:43:05,117 - coup_training - INFO - Total timesteps: 1000
+2025-07-12 16:43:05,117 - coup_training - INFO - Starting training
+2025-07-12 16:43:05,681 - coup_training - INFO - Training completed, running final evaluation
+2025-07-12 16:43:05,681 - coup_training - INFO - Evaluating agent over 20 episodes
+2025-07-12 16:43:06,065 - coup_training - INFO - Win rate vs random: 0.000
+2025-07-12 16:43:06,354 - coup_training - INFO - Win rate vs greedy: 0.000
+2025-07-12 16:43:06,357 - coup_training - INFO - Evaluation at step 1024:
+2025-07-12 16:43:06,357 - coup_training - INFO -   Elo Rating: 1500.0 (+1500.0)
+2025-07-12 16:43:06,357 - coup_training - INFO -   Win rates: {'random': 0.0, 'greedy': 0.0}
+2025-07-12 16:43:06,357 - coup_training - INFO -   Challenge accuracy: 0.000
+2025-07-12 16:43:06,357 - coup_training - INFO -   Block accuracy: 0.000
+2025-07-12 16:43:06,357 - coup_training - INFO -   Bluff success rate: 0.000
+2025-07-12 16:43:06,357 - coup_training - INFO - New best performance! Elo: 1500.0
+2025-07-12 16:43:06,364 - coup_training - INFO - Checkpoint saved at step 1024: logs/training_20250712_164305/checkpoints/final_checkpoint.pt
+2025-07-12 16:43:06,364 - coup_training - INFO - This is the best checkpoint so far!
+2025-07-12 16:43:06,364 - coup_training - INFO - Training Summary:
+2025-07-12 16:43:06,365 - coup_training - INFO - Total timesteps: 1024
+2025-07-12 16:43:06,365 - coup_training - INFO - Total episodes: 0
+2025-07-12 16:43:06,365 - coup_training - INFO - Best Elo rating: 0
+2025-07-12 16:43:06,365 - coup_training - INFO - Final Elo rating: 1500.0
+2025-07-12 16:43:06,365 - coup_training - INFO - Training completed!
+2025-07-12 16:43:06,365 - coup_training - INFO - Total timesteps: 0
+2025-07-12 16:43:06,365 - coup_training - INFO - Total episodes: 0
+2025-07-12 16:43:06,365 - coup_training - INFO - Total time: 1.25s
+2025-07-12 16:43:06,365 - coup_training - INFO - Best Elo: 1500.0
+2025-07-12 16:43:06,365 - coup_training - INFO - Training summary saved: logs/training_20250712_164305/training_summary.json

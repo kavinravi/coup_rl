@@ -1,0 +1,28 @@
+{
+  "checkpoints": {
+    "1024": {
+      "path": "logs/training_20250712_164305/checkpoints/final_checkpoint.pt",
+      "timestep": 1024,
+      "metrics": {
+        "timestep": 1024,
+        "elo_rating": 1500.0,
+        "final_evaluation": true
+      },
+      "is_best": true,
+      "save_time": "2025-07-12T16:43:06.364455"
+    }
+  },
+  "best_checkpoints": [
+    [
+      1500.0,
+      "logs/training_20250712_164305/checkpoints/final_checkpoint.pt"
+    ]
+  ],
+  "latest_checkpoints": [
+    [
+      1024,
+      "logs/training_20250712_164305/checkpoints/final_checkpoint.pt"
+    ]
+  ],
+  "last_updated": "2025-07-12T16:43:06.364649"
+}

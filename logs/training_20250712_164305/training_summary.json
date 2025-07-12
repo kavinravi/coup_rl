@@ -1,0 +1,24 @@
+{
+  "total_timesteps": 0,
+  "total_episodes": 0,
+  "total_time": 1.2489030361175537,
+  "timesteps_per_second": 0.0,
+  "episodes_per_second": 0.0,
+  "best_performance": {
+    "timestep": 1024,
+    "win_rates": {
+      "random": 0.0,
+      "greedy": 0.0
+    },
+    "avg_episode_length": 50.0,
+    "elo_rating": 1500.0,
+    "elo_change": 1500.0,
+    "challenge_accuracy": 0.0,
+    "block_accuracy": 0.0,
+    "bluff_success_rate": 0.0,
+    "action_distribution": {},
+    "avg_coins_per_game": 0,
+    "avg_eliminations": 0.0
+  },
+  "final_stats": {}
+}
