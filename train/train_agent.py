@@ -447,10 +447,36 @@ class SelfPlayTrainer:
         self.logger.close()
 
 
+def _convert_numeric_values(config: Dict[str, Any]) -> Dict[str, Any]:
+    """recursively convert string numeric values to proper types"""
+    if isinstance(config, dict):
+        for key, value in config.items():
+            if isinstance(value, str):
+                # try to convert scientific notation and other numeric strings
+                try:
+                    if 'e' in value.lower() or '.' in value:
+                        config[key] = float(value)
+                    elif value.isdigit():
+                        config[key] = int(value)
+                except (ValueError, AttributeError):
+                    pass
+            elif isinstance(value, (dict, list)):
+                config[key] = _convert_numeric_values(value)
+    elif isinstance(config, list):
+        for i, item in enumerate(config):
+            config[i] = _convert_numeric_values(item)
+    
+    return config
+
+
 def load_config(config_path: str) -> Dict[str, Any]:
     """load training configuration"""
     with open(config_path, 'r') as f:
         config = yaml.safe_load(f)
+    
+    # convert numeric values that may have been loaded as strings
+    config = _convert_numeric_values(config)
+    
     return config
 
 

@@ -184,6 +184,7 @@ coup_rl/
 ├── logs/                # Logs & game replays
 ├── notebooks/           # Analysis & visualization
 ├── requirements.txt     # Dependencies
+├── .gitignore           # Git ignore patterns
 └── README.md            # This file
 ```
 
